@@ -4,6 +4,31 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html">
 
-	<ui:composition template="">
+	<ui:composition>
+		<div class="col-md-10">
+		  <h3>Vendas Realizadas</h3>
+		  <table class="table table-hover table.striped">
+		  	<tr>
+		  	  <th>Venda</th>
+		  	  <th>Quantidade de Produtos</th>
+		  	  <th>Valor Total</th>
+		  	</tr>
+		  	<tr>
+		  	  <td>venda 1</td>
+		  	  <td>88 produtos</td>
+		  	  <td>R$ 100,00</td>		  	  
+			</tr>
+			<tr>
+		  	  <td>venda 2</td>
+		  	  <td>1 produto</td>
+		  	  <td>R$ 1,99</td>		  	  
+			</tr>
+			<tr>
+		  	  <td>#{controller.produtos}</td>
+		  	  <td>1 produto</td>
+		  	  <td>R$ 1,99</td>		  	  
+			</tr>
+		  </table>
+		</div>
 	</ui:composition>
 </html>
