@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      >
+
+<ui:composition>
+	<!-- Modal -->
+	<div class="modal fade" id="myModal" role="dialog">
+		<h:form>
+			<div class="modal-dialog">
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Login</h4>
+					</div>
+					<div class="modal-body form-group">
+
+						<div class="col-md-6">
+							<label for="usuario"> Usuario: </label>
+							<h:inputText value="#{usuarioBean.name}" class="form-control"/>	
+						</div>
+						<div class="col-md-6">
+							<label for="senha"> Senha: </label> 
+							<h:inputSecret value="#{usuarioBean.pwd}" class="form-control"/>
+						</div>
+					</div>
+					<br></br> <br></br> <br></br>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-danger" data-dismiss="modal">Sair</button>
+						<h:commandButton action="#{usuarioBean.verifica}" value="Entrar"
+						   styleClass="btn btn-success"/>
+					</div>
+				</div>
+			</div>
+		</h:form>
+	</div>
+	<h:outputScript library="js" name="login.js"></h:outputScript>	 
+</ui:composition>
+
+
+
+</html>

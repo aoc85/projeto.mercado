@@ -4,13 +4,15 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html">
 
-	<ui:composition>
-	  <div class="col-md-10" id="background">
+	 <ui:composition template="/index.xhtml">
+	 
+	  <ui:define name="conteudo">
+	   <div class="col-md-10" id="background">
 	    <div class="col-md-6 col-md-offset-2">
 	      <div class="panel panel-info">
 	      	<div class="panel-heading">
 	      	  <h3 class="panel-title">
-	      	  	Olá Admin!
+	      	  	Olá #{usuarioBean.name}!
 	      	  </h3>	      	  
 	      	</div>
 	      	<div class="panel-body">
@@ -21,7 +23,7 @@
 	      	
 	      </div>
 	    </div>
-	  </div>
-					
+	   </div>  
+	  </ui:define>
 	</ui:composition>
 </html>

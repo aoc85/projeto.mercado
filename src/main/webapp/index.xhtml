@@ -20,30 +20,18 @@
   </h:head>
   
   <h:body>
-    <div class="container">
-    
- 	  <div class="col-md-2">
- 	  	<div class="panel panel-default">
- 	  	  <div class="panel-heading">
- 	  	    <h3 class="panel-title">Painel Adm.</h3>
- 	  	  </div>
- 	  	  <ul class="nav nav-pills nav-stacked">
- 	  	    <li role="presentation"><a href="#">Produtos</a></li>
- 	  	    <li role="presentation"><a href="#">Vendas</a></li>
- 	  	    <li role="presentation"><a href="#">Graficos</a></li>
- 	  	    <li role="presentation"><a href="#">Configurações</a></li>
- 	  	  </ul> 	  	  
- 	  	</div>
- 	  	
- 	  	
- 	  </div> 
- 	  
- 	  <div class="col-md-10">
- 	  	<ui:insert name="conteudo" id="conteudo">
-			<ui:include src="vendas.xhtml"></ui:include>
- 	  	</ui:insert>
+    <div class="container">    
+ 	  <div class="col-md-2"> 	
+ 	    <ui:insert name="menu">
+ 	    	<ui:include src="/menu.xhtml"/>
+ 	    </ui:insert>  		 
  	  </div>
- 	   
+ 	  	
+ 	  <div class="col-md-10">
+ 	  	<ui:insert name="conteudo">
+		 <ui:include src="/login.xhtml"></ui:include>
+ 	    </ui:insert>
+ 	  </div> 	   
     </div>
  
   </h:body>

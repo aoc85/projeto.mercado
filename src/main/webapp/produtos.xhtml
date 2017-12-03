@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+	<ui:composition template="/index.xhtml">
+	  <ui:define name="conteudo">
+	  	
+	  
+	  <div class="col-md-10">
+		  <h3>Estoque</h3>
+	  	  <table class="table table-hover table.striped">
+		  	<tr>
+		  	  <th>id do Produto</th>
+		  	  <th>Nome do Produto</th>
+		  	  <th>Quantidade</th>
+		  	  <th>Unidades</th>
+		  	  <th>Editar</th>
+		  	  <th>Excluir</th>
+		  	</tr>
+		  	<tr>
+		  	  <td>prd1</td>
+		  	  <td>Produto 1</td>
+		  	  <td>100</td>
+		  	  <td>pacote</td>
+		  	  <td><a class="glyphicon glyphicon-pencil"></a></td>
+		  	  <td><a class="glyphicon glyphicon-remove"></a></td>		  	  
+			</tr>
+			<tr>
+		  	  <td>prd2</td>
+		  	  <td>produto 2</td>
+		  	  <td>5</td>
+		  	  <td>Kilo</td>
+		  	  <td><a class="glyphicon glyphicon-pencil"></a></td>
+		  	  <td><a class="glyphicon glyphicon-remove"></a></td>		  	  
+			</tr>
+			<tr>
+		  	  <td>#{produtoMB.codigo}</td>
+		  	  <td>#{produtoMB.produto}</td>
+		  	  <td>#{produtoMB.quantidade}</td>
+		  	  <td>#{produtoMB.unidade}</td>
+		  	  <td><a class="glyphicon glyphicon-pencil"></a></td>
+		  	  <td><a class="glyphicon glyphicon-remove"></a></td>		  	  
+			</tr>
+		  </table>
+		</div>
+		<button class="btn btn-success pull rigth">Adicionar novo Produto</button>
+	</ui:define>
+	</ui:composition>
+</html>

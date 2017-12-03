@@ -4,7 +4,8 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html">
 
-	<ui:composition>
+	<ui:composition template="/index.xhtml">
+	  <ui:define name="conteudo">
 		<div class="col-md-10">
 		  <h3>Vendas Realizadas</h3>
 		  <table class="table table-hover table.striped">
@@ -24,11 +25,12 @@
 		  	  <td>R$ 1,99</td>		  	  
 			</tr>
 			<tr>
-		  	  <td>#{controller.produtos}</td>
+		  	  <td>#{produtoMB.produto}</td>
 		  	  <td>1 produto</td>
 		  	  <td>R$ 1,99</td>		  	  
 			</tr>
 		  </table>
 		</div>
+	  </ui:define>
 	</ui:composition>
 </html>
