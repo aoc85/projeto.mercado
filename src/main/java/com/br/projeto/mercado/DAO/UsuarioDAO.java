@@ -11,8 +11,6 @@ import org.hibernate.cfg.Configuration;
 
 import com.br.projeto.mercado.models.Usuario;
 
-@Entity
-@Table(name = "usuarios")
 public class UsuarioDAO implements UsuarioDaoInterface<Usuario, String> {
 	
 	private Session currentSession;
@@ -89,8 +87,9 @@ public class UsuarioDAO implements UsuarioDaoInterface<Usuario, String> {
 	@Override
 	@SuppressWarnings("unchecked")
 	public List<Usuario> findAll() {
-		List<Usuario> usuarios = (List<Usuario>) getCurrentSession().createQuery("from usuarios").list();
+		List<Usuario> usuarios = (List<Usuario>) getCurrentSession().createQuery("from Usuario").list();
 		return usuarios;
 	}
+
 
 }

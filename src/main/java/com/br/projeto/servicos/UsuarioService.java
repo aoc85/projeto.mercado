@@ -8,6 +8,10 @@ import com.br.projeto.mercado.models.Usuario;
 public class UsuarioService {
 	private static UsuarioDAO usuarioDao;
 	
+	public UsuarioService() {
+		usuarioDao = new UsuarioDAO();
+	}
+	
 	public void persist(Usuario entity) {
 		usuarioDao.openCurrentSessionwithTransaction();
 		usuarioDao.persist(entity);
@@ -34,7 +38,7 @@ public class UsuarioService {
 		usuarioDao.closeCurrentSessionwithTransaction();
 	}
 	
-	public List<Usuario> findAll(){
+	public List<Usuario>findAll(){
 		usuarioDao.openCurrentSession();
 		List<Usuario> usuarios = usuarioDao.findAll();
 		usuarioDao.closeCurrentSession();
@@ -44,4 +48,5 @@ public class UsuarioService {
 	public UsuarioDAO usuarioDao() {
 		return usuarioDao;
 	}
+	
 }

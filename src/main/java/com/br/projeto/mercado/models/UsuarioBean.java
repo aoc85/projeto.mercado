@@ -1,10 +1,13 @@
 package com.br.projeto.mercado.models;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+
+import com.br.projeto.servicos.UsuarioService;
 
 @ManagedBean(name="usuarioBean")
 @RequestScoped
@@ -30,10 +33,14 @@ public class UsuarioBean implements Serializable{
 	
 	public String verifica() {
 		System.out.println(name);
-		System.out.println(name.equals("Andre"));
-		if(name.equals("Andre")) {
-			return "/entrada.xhtml";
+		UsuarioService u = new UsuarioService();
+		List<Usuario> lista = u.findAll();
+		for(Usuario a : lista) {
+			if((a.getNome().equals(this.name)) && (a.getPwd().equals(this.pwd))) {
+				return "/entrada.xhtml";
+			}
 		}
+		
 	    return null;
 	}
 	
