@@ -3,11 +3,12 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html">
-
+	
+	
+	
 	<ui:composition template="/index.xhtml">
 	  <ui:define name="conteudo">
-	  	
-	  
+	  <h:outputScript library="js" name="produtos.js" target="head"/>	  
 	  <div class="col-md-10">
 		  <h3>Estoque</h3>
 		  <h:form>
@@ -28,15 +29,57 @@
 		  	    <td>#{produto.quantidade}</td>
 		  	    <td>#{produto.unidade}</td>
 		  	    <td>#{produto.preco}</td>
-		  	    <td><h:commandLink styleClass="glyphicon glyphicon-pencil" action="#{produtoMB.excluir(produto.id)}">
+		  	    <td><h:commandLink styleClass="glyphicon glyphicon-pencil" action="#{produtoMB.editar(produto.id)}">
 		  	    </h:commandLink></td>
-		  	  <td><a class="glyphicon glyphicon-remove"></a></td>
+		  	  <td>
+		  	    <h:commandLink styleClass="glyphicon glyphicon-remove" action="#{produtoMB.excluir(produto.id)}">
+		  	    </h:commandLink>
+		  	  </td>
 		  	   </tr>		  	
 		  	</ui:repeat>
 		  </table>
 		  </h:form>
 		 </div>
 		<button class="btn btn-success pull rigth">Adicionar novo Produto</button>
+		<!-- Modal -->
+	<div class="modal fade" id="produtosModal" role="dialog">
+		<h:form>
+			<div class="modal-dialog">
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Adicionar Produo</h4>
+					</div>
+					<div class="modal-body form-group">
+
+						<div class="col-md-12">
+							<label for="usuario"> Nome: </label>
+							<h:inputText value="#{usuarioBean.name}" class="form-control"/>	
+						</div>
+						<div class="col-md-12">
+							<label for="usuario"> Preço: </label>
+							<h:inputText value="#{produtoBean.preco}" class="form-control"/>	
+						</div>
+						<div class="col-md-12">
+							<label for="usuario"> Quantidade: </label>
+							<h:inputText value="#{produtoBean.quantidade}" class="form-control"/>	
+						</div>
+						<div class="col-md-12">
+							<label for="usuario"> Unidade: </label>
+							<h:inputText value="#{produtoBean.unidade}" class="form-control"/>	
+						</div>						
+					</div>
+					<br></br> <br></br> <br></br>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-danger" data-dismiss="modal">Sair</button>
+						<h:commandButton action="#{produtoBean.adicionar}" value="Entrar"
+						   styleClass="btn btn-success"/>
+					</div>
+				</div>
+			</div>
+		</h:form>
+	  </div>
 	</ui:define>
 	</ui:composition>
 </html>
