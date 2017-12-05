@@ -31,15 +31,13 @@ public class UsuarioBean implements Serializable{
 	}
 	
 	public String verifica() {
-		System.out.println(name);
-		UsuarioService u = new UsuarioService();
-		List<Usuario> lista = u.findAll();
+		UsuarioService usuario = new UsuarioService();
+		List<Usuario> lista = usuario.findAll();
 		for(Usuario a : lista) {
 			if((a.getNome().equals(this.name)) && (a.getPwd().equals(this.pwd))) {
 				return "/entrada.xhtml";
 			}
-		}
-		
+		}		
 	    return null;
 	}
 	

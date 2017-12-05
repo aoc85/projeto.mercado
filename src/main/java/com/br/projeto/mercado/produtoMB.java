@@ -17,14 +17,17 @@ public class produtoMB implements Serializable{
 	String produto;
 	double preço;
 	double quantidade;
+	String unidade;
+	int id;
+	private List<Produto> listaProduto;
 	
 	public int getId() {
 		return id;
 	}
-
-	String unidade;
-	int id;
-	private List<Produto> listaProduto;
+	
+	public void setId(int id) {
+		this.id = id;
+	}
 
 	public double getPreço() {
 		return preço;
@@ -65,6 +68,11 @@ public class produtoMB implements Serializable{
 		ProdutosService pService = new ProdutosService();
 		listaProduto = pService.findAll();
 		return listaProduto;
+	}
+	
+	public void excluir(int id) {
+		ProdutosService pService = new ProdutosService();
+		pService.delete(id);
 	}
 	
 
