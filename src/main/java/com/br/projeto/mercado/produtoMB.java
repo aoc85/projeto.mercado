@@ -1,30 +1,32 @@
 package com.br.projeto.mercado;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 
+import com.br.projeto.mercado.models.Produto;
+import com.br.projeto.servicos.ProdutosService;
+
 @ManagedBean
 @RequestScoped
 public class produtoMB implements Serializable{
+	
+	private static final long serialVersionUID = 1L;
 	String produto;
 	double preço;
 	double quantidade;
-	String unidade;
-	int codigo;
 	
-	public int getCodigo() {
-		this.codigo = 10;
-		return codigo;
+	public int getId() {
+		return id;
 	}
 
-	public void setCodigo(int codigo) {
-		this.codigo = codigo;
-	}
+	String unidade;
+	int id;
+	private List<Produto> listaProduto;
 
 	public double getPreço() {
-		this.preço = 100.00;
 		return preço;
 	}
 
@@ -59,6 +61,11 @@ public class produtoMB implements Serializable{
 		this.produto = produto;
 	}
 	
+	public List<Produto> getListaProduto(){
+		ProdutosService pService = new ProdutosService();
+		listaProduto = pService.findAll();
+		return listaProduto;
+	}
 	
 
 }

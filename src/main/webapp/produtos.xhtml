@@ -16,35 +16,23 @@
 		  	  <th>Nome do Produto</th>
 		  	  <th>Quantidade</th>
 		  	  <th>Unidades</th>
+		  	  <th>Preço</th>
 		  	  <th>Editar</th>
 		  	  <th>Excluir</th>
 		  	</tr>
-		  	<tr>
-		  	  <td>prd1</td>
-		  	  <td>Produto 1</td>
-		  	  <td>100</td>
-		  	  <td>pacote</td>
-		  	  <td><a class="glyphicon glyphicon-pencil"></a></td>
-		  	  <td><a class="glyphicon glyphicon-remove"></a></td>		  	  
-			</tr>
-			<tr>
-		  	  <td>prd2</td>
-		  	  <td>produto 2</td>
-		  	  <td>5</td>
-		  	  <td>Kilo</td>
-		  	  <td><a class="glyphicon glyphicon-pencil"></a></td>
-		  	  <td><a class="glyphicon glyphicon-remove"></a></td>		  	  
-			</tr>
-			<tr>
-		  	  <td>#{produtoMB.codigo}</td>
-		  	  <td>#{produtoMB.produto}</td>
-		  	  <td>#{produtoMB.quantidade}</td>
-		  	  <td>#{produtoMB.unidade}</td>
-		  	  <td><a class="glyphicon glyphicon-pencil"></a></td>
-		  	  <td><a class="glyphicon glyphicon-remove"></a></td>		  	  
-			</tr>
+		  	<ui:repeat var="produto" value="#{produtoMB.listaProduto}">
+		  	  <tr>
+		  	    <td>#{produto.id}</td>
+		  	    <td>#{produto.nome}</td>
+		  	    <td>#{produto.quantidade}</td>
+		  	    <td>#{produto.unidade}</td>
+		  	    <td>#{produto.preco}</td>
+		  	    <td><a class="glyphicon glyphicon-pencil"></a></td>
+		  	  <td><a class="glyphicon glyphicon-remove"></a></td>
+		  	   </tr>		  	
+		  	</ui:repeat>
 		  </table>
-		</div>
+		 </div>
 		<button class="btn btn-success pull rigth">Adicionar novo Produto</button>
 	</ui:define>
 	</ui:composition>

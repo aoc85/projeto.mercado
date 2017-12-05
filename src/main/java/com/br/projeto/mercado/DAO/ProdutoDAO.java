@@ -2,21 +2,20 @@ package com.br.projeto.mercado.DAO;
 
 import java.util.List;
 
-
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 
-import com.br.projeto.mercado.models.Usuario;
+import com.br.projeto.mercado.models.Produto;
 
-public class UsuarioDAO implements UsuarioDaoInterface<Usuario, String> {
-	
+public class ProdutoDAO implements ProdutoDaoInterface<Produto, String>{
+
 	private Session currentSession;
 	private Transaction currentTransaction;
 	
-	public UsuarioDAO() {
+	public ProdutoDAO() {
 		
 	}
 	
@@ -63,33 +62,35 @@ public class UsuarioDAO implements UsuarioDaoInterface<Usuario, String> {
 	}
 	
 	@Override
-	public void persist(Usuario entity) {
+	public void persist(Produto entity) {
 		getCurrentSession().save(entity);
 		
 	}
 
 	@Override
-	public void update(Usuario entity) {
+	public void update(Produto entity) {
 		getCurrentSession().update(entity);		
 	}
 
 	@Override
-	public Usuario findById(int id) {
-		Usuario usuario = (Usuario) getCurrentSession().get(Usuario.class, id);
-		return usuario;
+	public Produto findById(int id) {
+		Produto produto = (Produto) getCurrentSession().get(Produto.class, id);
+		return produto;
 	}
 
 	@Override
-	public void delete(Usuario entity) {
+	public void delete(Produto entity) {
 		getCurrentSession().delete(entity);		
 	}
 
 	@Override
 	@SuppressWarnings("unchecked")
-	public List<Usuario> findAll() {
-		List<Usuario> usuarios = (List<Usuario>) getCurrentSession().createQuery("from Usuario").list();
-		return usuarios;
+	public List<Produto> findAll() {
+		List<Produto> produtos = (List<Produto>) getCurrentSession().createQuery("from Produto").list();
+		return produtos;
 	}
+
+	
 
 
 }

@@ -1,6 +1,5 @@
 package com.br.projeto.mercado.models;
 
-import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,11 +8,12 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "usuario")
+@Table(name = "usuarios")
 public class Usuario {
 	
 	@Id
-	@Column(name="id")
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name="id")	
 	private int id;
 	
 	@Column(name="senha")
@@ -34,10 +34,10 @@ public class Usuario {
 		
 	}
 	
-	public Usuario(String nome, String senha, int id) {
+	public Usuario(String nome, String senha) {
 		this.nome = nome;
 		this.pwd = senha;
-		this.id = id;
+		
 	}
 
 	public String getPwd() {
@@ -54,11 +54,6 @@ public class Usuario {
 
 	public void setNome(String nome) {
 		this.nome = nome;
-	}
-	
-	@Override
-	public String toString() {
-		return "Usuario:"+nome+" Senha:"+pwd;
 	}
 	
 

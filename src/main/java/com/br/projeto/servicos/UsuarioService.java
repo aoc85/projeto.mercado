@@ -24,14 +24,14 @@ public class UsuarioService {
 		usuarioDao.closeCurrentSessionwithTransaction();
 	}
 	
-	public Usuario findById(String id) {
+	public Usuario findById(int id) {
 		usuarioDao.openCurrentSession();
 		Usuario usuario = usuarioDao.findById(id);
 		usuarioDao.closeCurrentSession();
 		return usuario;
 	}
 	
-	public void delete(String id) {
+	public void delete(int id) {
 		usuarioDao.openCurrentSessionwithTransaction();
 		Usuario usuario = usuarioDao.findById(id);
 		usuarioDao.delete(usuario);
