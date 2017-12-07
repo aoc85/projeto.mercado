@@ -22,17 +22,17 @@
 		  	  <th>Editar</th>
 		  	  <th>Excluir</th>
 		  	</tr>
-		  	<ui:repeat var="produto" value="#{produtoMB.listaProduto}">
+		  	<ui:repeat var="produto" value="#{produtoBean.listaProduto}">
 		  	  <tr>
 		  	    <td>#{produto.id}</td>
 		  	    <td>#{produto.nome}</td>
 		  	    <td>#{produto.quantidade}</td>
 		  	    <td>#{produto.unidade}</td>
 		  	    <td>#{produto.preco}</td>
-		  	    <td><h:commandLink styleClass="glyphicon glyphicon-pencil" action="#{produtoMB.editar(produto.id)}">
+		  	    <td><h:commandLink styleClass="glyphicon glyphicon-pencil" action="#{produtoBean.editar(produto.id)}">
 		  	    </h:commandLink></td>
 		  	  <td>
-		  	    <h:commandLink styleClass="glyphicon glyphicon-remove" action="#{produtoMB.excluir(produto.id)}">
+		  	    <h:commandLink styleClass="glyphicon glyphicon-remove" action="#{produtoBean.excluir(produto.id)}">
 		  	    </h:commandLink>
 		  	  </td>
 		  	   </tr>		  	
@@ -55,30 +55,30 @@
 
 						<div class="col-md-12">
 							<label> Nome: </label>
-							<h:inputText value="#{produtoMB.produto}" class="form-control" placeholder="Nome do Produto"/>	
+							<h:inputText value="#{produtoBean.produto}" class="form-control" placeholder="Nome do Produto"/>	
 						</div>
 						<div class="col-md-12">
 							<label> Preço: </label>
-							<h:inputText value="#{produtoMB.preco}" class="form-control preco">
+							<h:inputText value="#{produtoBean.preco}" class="form-control preco">
 							  <f:convertNumber pattern="#00.00"/>
 							</h:inputText>
 							<p id="alerta"><small>O valor do preço deve ser informado no formato 99.99</small></p>	
 						</div>
 						<div class="col-md-12">
 							<label> Quantidade: </label>
-							<h:inputText value="#{produtoMB.quantidade}" class="form-control quantidade">
+							<h:inputText value="#{produtoBean.quantidade}" class="form-control quantidade">
 							  <f:convertNumber integerOnly="true"/>
 							</h:inputText>	
 						</div>
 						<div class="col-md-12">
 							<label> Unidade: </label>
-							<h:inputText value="#{produtoMB.unidade}" class="form-control"/>	
+							<h:inputText value="#{produtoBean.unidade}" class="form-control"/>	
 						</div>						
 					</div>
 					<br></br> <br></br> <br></br>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-danger" data-dismiss="modal">Sair</button>
-						<h:commandButton action="#{produtoMB.adicionar(produtoMB.produto, produtoMB.preco, produtoMB.quantidade, produtoMB.unidade)}" value="Adicionar" styleClass="btn btn-success"/>
+						<h:commandButton action="#{produtoBean.adicionar(produtoBean.produto, produtoBean.preco, produtoBean.quantidade, produtoBean.unidade)}" value="Adicionar" styleClass="btn btn-success"/>
 					</div>
 				</div>
 			</div>
